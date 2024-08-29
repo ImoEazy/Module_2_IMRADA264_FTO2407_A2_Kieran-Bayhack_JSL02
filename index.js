@@ -21,6 +21,7 @@ document.querySelector('#submitWorkout').addEventListener('click', displayWorkou
 const addNewGoal = () => {
     const goalInput = document.querySelector('#goalInput').value;
     const goalList = document.querySelector('#goalList');
+
     
     // ⚠️ Hint 1: Check for duplicates
     // Use 'goalList' to get all existing goals and check if 'goalInput' matches any of them.
@@ -39,6 +40,10 @@ const addNewGoal = () => {
     const newGoal = document.createElement('li');
     newGoal.textContent = goalInput;
     goalList.appendChild(newGoal);
+
+    newGoal.addEventListener('click', () => { //ADDED EVENT LISTENER//
+        goalList.removeChild(newGoal);
+    });
 };
 
 // Add event listener to the goal submit button
