@@ -1,3 +1,5 @@
+"strict";
+
 const welcomeMessage = () => {
     const today = new Date().toDateString();
     document.getElementById('welcomeMessage').textContent = `🤸🏾‍♀️ Welcome to Your Fitness Tracker 🥗 Today is ${today}`;
@@ -21,6 +23,16 @@ document.querySelector('#submitWorkout').addEventListener('click', displayWorkou
 const addNewGoal = () => {
     const goalInput = document.querySelector('#goalInput').value;
     const goalList = document.querySelector('#goalList');
+
+    goalInput.value = "";
+
+    for(let node of goalList.childNodes.values()){
+        if (node.innerText.toLowerCase() === goalInputText.toLowerCase()){ //lower case, uppercase
+            alert("Duplicate Goal Ignored.");// if duplicated
+            return;//stops loop, return function 'addNewGoal
+        }
+    };
+    
     
 
     
@@ -42,9 +54,10 @@ const addNewGoal = () => {
     newGoal.textContent = goalInput;
     goalList.appendChild(newGoal);
 
-    newGoal.addEventListener('click', () => { //ADDED EVENT LISTENER//
-        goalList.removeChild(newGoal);
-    });
+
+
+   
+    
 };
 
 // Add event listener to the goal submit button
