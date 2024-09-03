@@ -37,12 +37,7 @@ const addNewGoal = () => {
             return;// exit function due to duplicated goals added
         }
     }
-    // ⚠️ Hint 3: Code structure
-    // You might want to wrap the duplicate-checking logic in an 'if' statement.
-    
-    // ⚠️ Hint 4: Event listener
-    // The event listener that removes goals when clicked is not related to this issue.
-    // Focus on preventing duplicates for now.
+
 
     const newGoal = document.createElement('li');// prevents goal being added after error message
     newGoal.textContent = goalInput;
@@ -50,7 +45,7 @@ const addNewGoal = () => {
     
 
 
-    newGoal.addEventListener('click', () => {
+    newGoal.addEventListener('click', () => { //returns to adding new goal
         goalList.removeChild(newGoal);
     });
 };
